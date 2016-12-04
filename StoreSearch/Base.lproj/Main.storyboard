@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,13 +18,44 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cSG-CK-xuU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="F6M-wW-JYd"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="xwJ-Vc-JEL"/>
+                                </connections>
+                            </tableView>
+                            <searchBar contentMode="redraw" placeholder="App name, artist, song, album, e-book" translatesAutoresizingMaskIntoConstraints="NO" id="wtS-j9-X4B">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="4yc-Uz-YFI"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wtS-j9-X4B" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2KN-E6-9iK"/>
+                            <constraint firstAttribute="trailing" secondItem="wtS-j9-X4B" secondAttribute="trailing" id="2pS-Xc-mAb"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cSG-CK-xuU" secondAttribute="bottom" id="N40-7Y-Qxe"/>
+                            <constraint firstItem="cSG-CK-xuU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fOz-Id-lhv"/>
+                            <constraint firstItem="cSG-CK-xuU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qbe-rA-cgA"/>
+                            <constraint firstItem="wtS-j9-X4B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qmA-qU-5jm"/>
+                            <constraint firstAttribute="trailing" secondItem="cSG-CK-xuU" secondAttribute="trailing" id="vfP-0P-8fW"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchBar" destination="wtS-j9-X4B" id="4Dk-cM-jkk"/>
+                        <outlet property="tableView" destination="cSG-CK-xuU" id="Unl-bb-DNa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="118.125" y="122.53521126760563"/>
         </scene>
     </scenes>
 </document>
