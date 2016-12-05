@@ -33,6 +33,8 @@ class SearchViewController: UIViewController {
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.nothingFoundCell)
         
         tableView.rowHeight = 80    //fix for too small row height
+        
+        searchBar.becomeFirstResponder()    //show keyboard at the beginning
     }
 
     //remove white space from actionBar
