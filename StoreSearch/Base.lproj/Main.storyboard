@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cSG-CK-xuU">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cSG-CK-xuU">
+                                <rect key="frame" x="0.0" y="108" width="320" height="460"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="F6M-wW-JYd"/>
@@ -40,13 +40,44 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="4yc-Uz-YFI"/>
                                 </connections>
                             </searchBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e4g-4a-RkA">
+                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="JzJ-Db-Dep"/>
+                                    <constraint firstAttribute="height" constant="44" id="YFh-3B-tE1"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="Bpd-mc-dZL">
+                                        <nil key="title"/>
+                                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="EkY-3i-HfI">
+                                            <rect key="frame" x="10" y="7" width="300" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="All"/>
+                                                <segment title="Music"/>
+                                                <segment title="Software"/>
+                                                <segment title="E-books"/>
+                                            </segments>
+                                            <connections>
+                                                <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="m54-uV-ME1"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="wtS-j9-X4B" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="2KN-E6-9iK"/>
                             <constraint firstAttribute="trailing" secondItem="wtS-j9-X4B" secondAttribute="trailing" id="2pS-Xc-mAb"/>
+                            <constraint firstItem="e4g-4a-RkA" firstAttribute="top" secondItem="wtS-j9-X4B" secondAttribute="bottom" id="9dM-o8-Fem"/>
+                            <constraint firstItem="e4g-4a-RkA" firstAttribute="top" secondItem="wtS-j9-X4B" secondAttribute="bottom" id="Cfg-Ao-c7j"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cSG-CK-xuU" secondAttribute="bottom" id="N40-7Y-Qxe"/>
+                            <constraint firstItem="e4g-4a-RkA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rtv-8t-Icy"/>
+                            <constraint firstAttribute="trailing" secondItem="e4g-4a-RkA" secondAttribute="trailing" id="W1S-jW-iP1"/>
+                            <constraint firstItem="e4g-4a-RkA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ww5-yC-W4c"/>
                             <constraint firstItem="cSG-CK-xuU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fOz-Id-lhv"/>
+                            <constraint firstAttribute="trailing" secondItem="e4g-4a-RkA" secondAttribute="trailing" id="jZq-FK-HUu"/>
                             <constraint firstItem="cSG-CK-xuU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qbe-rA-cgA"/>
                             <constraint firstItem="wtS-j9-X4B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qmA-qU-5jm"/>
                             <constraint firstAttribute="trailing" secondItem="cSG-CK-xuU" secondAttribute="trailing" id="vfP-0P-8fW"/>
@@ -54,6 +85,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBar" destination="wtS-j9-X4B" id="4Dk-cM-jkk"/>
+                        <outlet property="segmentedControl" destination="EkY-3i-HfI" id="2qZ-yF-CwS"/>
                         <outlet property="tableView" destination="cSG-CK-xuU" id="Unl-bb-DNa"/>
                     </connections>
                 </viewController>

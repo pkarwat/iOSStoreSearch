@@ -12,7 +12,6 @@
 		5EBD1A6C1DF24A320002987B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD1A6B1DF24A320002987B /* SearchViewController.swift */; };
 		5EBD1A6F1DF24A320002987B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBD1A6D1DF24A320002987B /* Main.storyboard */; };
 		5EBD1A711DF24A320002987B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EBD1A701DF24A320002987B /* Assets.xcassets */; };
-		5EBD1A741DF24A320002987B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5EBD1A721DF24A320002987B /* LaunchScreen.storyboard */; };
 		5EE07D5E1DF58773003BC00A /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE07D5D1DF58773003BC00A /* SearchResultCell.xib */; };
 		5EE07D601DF59617003BC00A /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE07D5F1DF59617003BC00A /* SearchResultCell.swift */; };
 		5EE07D641DF59FBD003BC00A /* NothingFoundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EE07D631DF59FBD003BC00A /* NothingFoundCell.xib */; };
@@ -26,7 +25,6 @@
 		5EBD1A6B1DF24A320002987B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5EBD1A6E1DF24A320002987B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5EBD1A701DF24A320002987B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5EBD1A731DF24A320002987B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EBD1A751DF24A320002987B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5EE07D5D1DF58773003BC00A /* SearchResultCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		5EE07D5F1DF59617003BC00A /* SearchResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
@@ -68,7 +66,6 @@
 				5EBD1A6B1DF24A320002987B /* SearchViewController.swift */,
 				5EBD1A6D1DF24A320002987B /* Main.storyboard */,
 				5EBD1A701DF24A320002987B /* Assets.xcassets */,
-				5EBD1A721DF24A320002987B /* LaunchScreen.storyboard */,
 				5EBD1A751DF24A320002987B /* Info.plist */,
 				5E53C97D1DF443350049C754 /* SearchResult.swift */,
 				5EE07D5D1DF58773003BC00A /* SearchResultCell.xib */,
@@ -138,7 +135,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5EBD1A741DF24A320002987B /* LaunchScreen.storyboard in Resources */,
 				5EBD1A711DF24A320002987B /* Assets.xcassets in Resources */,
 				5EE5BA7B1DF705FC00460E0E /* LoadingCell.xib in Resources */,
 				5EE07D5E1DF58773003BC00A /* SearchResultCell.xib in Resources */,
@@ -170,14 +166,6 @@
 				5EBD1A6E1DF24A320002987B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5EBD1A721DF24A320002987B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5EBD1A731DF24A320002987B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
