@@ -19,6 +19,9 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    //optional cause u won`t have a data task yet until the user performs a search
+    var dataTask: URLSessionDataTask?
+    
     var searchResults: [SearchResult] = []    //var searchResults = [String]()
     var hasSearched = false
     var isLoading = false
@@ -228,6 +231,8 @@ extension SearchViewController: UISearchBarDelegate {
         if !searchBar.text!.isEmpty {
             searchBar.resignFirstResponder()
             
+            dataTask?.cancel() //cancel previous request
+            
             isLoading = true
             tableView.reloadData()
             
@@ -238,13 +243,14 @@ extension SearchViewController: UISearchBarDelegate {
             let session = URLSession.shared //2
             //shared - std config with respect to caching, cookies etc.
             //3 parameter data, response & error ARE OPTIONALS
-            let dataTask = session.dataTask(with: url, completionHandler: {
+            dataTask = session.dataTask(with: url, completionHandler: {
                 data, response, error in
                 
                 print("On the main thread? " + (Thread.current.isMainThread ? "Yes" : "No") )
                 
-                if let error = error {
+                if let error = error as? NSError, error.code == -999 {
                     print("Failure! \(error)")
+                    return
                 } else if let httpResponse = response as? HTTPURLResponse,
                     httpResponse.statusCode == 200 {
                     //print("Success! \(data!)")
@@ -271,7 +277,7 @@ extension SearchViewController: UISearchBarDelegate {
                     self.showNetworkError()
                 }
             })
-            dataTask.resume()
+            dataTask?.resume()
             
             //let queue = DispatchQueue.global()
             //queue.async {
