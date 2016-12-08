@@ -47,8 +47,11 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //fix for opaque subviews
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        //view.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+        
+        view.backgroundColor = UIColor.clear
         view.tintColor = UIColor(red: 20/255, green: 160/255, blue: 160/255, alpha: 1)
         popupView.layer.cornerRadius = 10
         
@@ -103,6 +106,10 @@ class DetailViewController: UIViewController {
             downloadTask = artworkImageView.loadImage(url: largeURL)
         }
     }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return SlideOutAnimationController()
+    }
 
 }
 
@@ -111,6 +118,12 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
     
     func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         return DimmingPresentationController(presentedViewController: presented, presenting: presenting)
+    }
+    
+    //animation for Detail popup
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning {
+        return BounceAnimationController()
     }
     
 }
