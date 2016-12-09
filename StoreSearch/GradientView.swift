@@ -14,11 +14,13 @@ class GradientView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = UIColor.clear
+        autoresizingMask = [.flexibleWidth, .flexibleHeight] //fix for issue from 178 page
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         backgroundColor = UIColor.clear
+        autoresizingMask = [.flexibleWidth, .flexibleHeight] //fix for issue from 178 page
     }
     
     override func draw(_ rect: CGRect) {

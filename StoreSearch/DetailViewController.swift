@@ -10,6 +10,13 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    enum AnimationStyle {
+        case slide
+        case fade
+    }
+    
+    var dismissAnimationStyle = AnimationStyle.fade
+    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var artworkImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -26,6 +33,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func close() {
+        dismissAnimationStyle = .slide
         dismiss(animated: true, completion: nil)
     }
     
@@ -108,7 +116,13 @@ class DetailViewController: UIViewController {
     }
     
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return SlideOutAnimationController()
+        switch dismissAnimationStyle {
+        case .slide:
+            return SlideOutAnimationController()
+        case .fade:
+            //animation for dismissing popup while rotating to landscape
+            return FadeOutAnimationController()
+        }
     }
 
 }

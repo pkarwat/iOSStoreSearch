@@ -24,6 +24,9 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
+    //optional cause there`ll be only be an active LandscapeViewController instance if the phone is in landscape orientation. In portrait it`ll be nil
+    var landscapeViewController: LandscapeViewController?
+    
     //optional cause u won`t have a data task yet until the user performs a search
     var dataTask: URLSessionDataTask?
     
@@ -229,6 +232,56 @@ class SearchViewController: UIViewController {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         performSearch()
+    }
+    
+    //invoked when the device is flipped over
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+        switch newCollection.verticalSizeClass {
+        case .compact:
+            showLandscape(with: coordinator)
+        case .regular, .unspecified:
+            hideLandscape(with: coordinator)
+        }
+    }
+    
+    func showLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        guard landscapeViewController == nil else { return }
+        landscapeViewController = storyboard!.instantiateViewController(withIdentifier: "LandscapeViewController") as? LandscapeViewController
+        if let controller = landscapeViewController {
+            controller.view.frame = view.bounds
+            controller.view.alpha = 0
+            
+            view.addSubview(controller.view)    //add the landscape as a subview. This places it on top of the table view, search bar and segmented control
+            addChildViewController(controller)  //if you forget this step then the new view controller may not always work correctly
+            
+            coordinator.animate(alongsideTransition: { _ in
+                controller.view.alpha = 1
+                self.searchBar.resignFirstResponder()
+                if self.presentedViewController != nil {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }, completion: { _ in
+                controller.didMove(toParentViewController: self)
+            })
+            
+            //controller.didMove(toParentViewController: self)
+        }
+    }
+    
+    func hideLandscape(with coordinator: UIViewControllerTransitionCoordinator) {
+        if let controller = landscapeViewController {
+            controller.willMove(toParentViewController: nil)
+            
+            coordinator.animate(alongsideTransition: { _ in
+                controller.view.alpha = 0
+            }, completion: { _ in
+                controller.view.removeFromSuperview()
+                controller.removeFromParentViewController()
+                self.landscapeViewController = nil
+            })
+        }
     }
     
 }
