@@ -59,6 +59,67 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5EB9B0361DFE8F9400D15B43 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9B03B1DFE902400D15B43 /* animation */,
+				5E2DA4BE1DF94F9500F7FB12 /* DetailViewController.swift */,
+				5EBD1A6B1DF24A320002987B /* SearchViewController.swift */,
+				5E79794B1DF9B2390060EBDF /* LandscapeViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		5EB9B0371DFE8F9B00D15B43 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5EE07D5F1DF59617003BC00A /* SearchResultCell.swift */,
+				5E53C97D1DF443350049C754 /* SearchResult.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		5EB9B0381DFE8FC600D15B43 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				5E7979451DF99CA00060EBDF /* GradientView.swift */,
+				5EEA99251DF8540B008B4C5E /* UIImageView+DownloadImage.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		5EB9B0391DFE8FFC00D15B43 /* res */ = {
+			isa = PBXGroup;
+			children = (
+				5EB9B03A1DFE901000D15B43 /* xib */,
+				5EBD1A751DF24A320002987B /* Info.plist */,
+				5EBD1A701DF24A320002987B /* Assets.xcassets */,
+				5EBD1A6D1DF24A320002987B /* Main.storyboard */,
+			);
+			name = res;
+			sourceTree = "<group>";
+		};
+		5EB9B03A1DFE901000D15B43 /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				5EE07D631DF59FBD003BC00A /* NothingFoundCell.xib */,
+				5EE07D5D1DF58773003BC00A /* SearchResultCell.xib */,
+				5EE5BA7A1DF705FC00460E0E /* LoadingCell.xib */,
+			);
+			name = xib;
+			sourceTree = "<group>";
+		};
+		5EB9B03B1DFE902400D15B43 /* animation */ = {
+			isa = PBXGroup;
+			children = (
+				5E2DA4C01DF95CD400F7FB12 /* DimmingPresentationController.swift */,
+				5E5B69881DFA9A34003033D5 /* FadeOutAnimationController.swift */,
+				5E7979491DF9ACB40060EBDF /* SlideOutAnimationController.swift */,
+				5E7979471DF9A3BA0060EBDF /* BounceAnimationController.swift */,
+			);
+			name = animation;
+			sourceTree = "<group>";
+		};
 		5EBD1A5D1DF24A320002987B = {
 			isa = PBXGroup;
 			children = (
@@ -78,24 +139,11 @@
 		5EBD1A681DF24A320002987B /* StoreSearch */ = {
 			isa = PBXGroup;
 			children = (
+				5EB9B0361DFE8F9400D15B43 /* controller */,
+				5EB9B0371DFE8F9B00D15B43 /* model */,
+				5EB9B0381DFE8FC600D15B43 /* view */,
 				5EBD1A691DF24A320002987B /* AppDelegate.swift */,
-				5EBD1A6B1DF24A320002987B /* SearchViewController.swift */,
-				5EBD1A6D1DF24A320002987B /* Main.storyboard */,
-				5EBD1A701DF24A320002987B /* Assets.xcassets */,
-				5EBD1A751DF24A320002987B /* Info.plist */,
-				5E53C97D1DF443350049C754 /* SearchResult.swift */,
-				5EE07D5D1DF58773003BC00A /* SearchResultCell.xib */,
-				5EE07D5F1DF59617003BC00A /* SearchResultCell.swift */,
-				5EE07D631DF59FBD003BC00A /* NothingFoundCell.xib */,
-				5EE5BA7A1DF705FC00460E0E /* LoadingCell.xib */,
-				5EEA99251DF8540B008B4C5E /* UIImageView+DownloadImage.swift */,
-				5E2DA4BE1DF94F9500F7FB12 /* DetailViewController.swift */,
-				5E2DA4C01DF95CD400F7FB12 /* DimmingPresentationController.swift */,
-				5E7979451DF99CA00060EBDF /* GradientView.swift */,
-				5E7979471DF9A3BA0060EBDF /* BounceAnimationController.swift */,
-				5E7979491DF9ACB40060EBDF /* SlideOutAnimationController.swift */,
-				5E79794B1DF9B2390060EBDF /* LandscapeViewController.swift */,
-				5E5B69881DFA9A34003033D5 /* FadeOutAnimationController.swift */,
+				5EB9B0391DFE8FFC00D15B43 /* res */,
 			);
 			path = StoreSearch;
 			sourceTree = "<group>";
